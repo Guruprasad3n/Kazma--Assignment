@@ -1,3 +1,38 @@
+// import React, { useEffect, useState } from "react";
+// import TaskList from "./components/TaskList";
+// import AddTaskForm from "./components/AddTaskForm";
+// import axios from "axios";
+
+// const App: React.FC = () => {
+//   const [tasks, setTasks] = useState<string[]>([]);
+
+//   useEffect(() => {
+//     const fetchTasks = async () => {
+//       const { data } = await axios.get("/api/tasks/fetchAllTasks");
+//       setTasks(data.tasks);
+//     };
+//     fetchTasks();
+//   }, []);
+
+//   const handleAddTask = async (task: string) => {
+//     await axios.post("/api/tasks/add", { task });
+//     setTasks((prev) => [...prev, task]);
+//   };
+
+//   return (
+//    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+//    <div className="bg-white shadow-md rounded-lg p-6 max-w-md w-full">
+//      <h1 className="text-2xl font-bold text-center mb-4 text-gray-800">Todo List</h1>
+//      <AddTaskForm onAddTask={handleAddTask} />
+//      <TaskList tasks={tasks} />
+//    </div>
+//  </div>
+//   );
+// };
+
+// export default App;
+
+
 import React, { useEffect, useState } from "react";
 import TaskList from "./components/TaskList";
 import AddTaskForm from "./components/AddTaskForm";
@@ -20,8 +55,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="container">
-      <h1>Todo List</h1>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-400 to-purple-600 text-white p-5">
+      <h1 className="text-4xl font-bold mb-5">Todo List</h1>
       <AddTaskForm onAddTask={handleAddTask} />
       <TaskList tasks={tasks} />
     </div>
