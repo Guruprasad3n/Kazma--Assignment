@@ -1,21 +1,22 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
-import './mqttHandler';  // MQTT service to handle topic subscriptions
-import './db';           // MongoDB connection
+import './mqttHandler';  
 import taskRoutes from './taskRoutes';
+import connectDB from './db';
 
 dotenv.config();
-
+connectDB()
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/tasks', taskRoutes);  // Use task routes
+app.use('/api/tasks', taskRoutes);  
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
+    console.log("Database Comnnected")
 });
 
 
